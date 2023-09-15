@@ -3,15 +3,17 @@
 // Coloca o encoding para UTF8 para exibir acentuação
 Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-decimal precoInicial = 0;
-decimal precoPorHora = 0;
+// decimal precoInicial = 0;
+// decimal precoPorHora = 0;
 
-Console.WriteLine("Seja bem vindo ao sistema de estacionamento!\n" +
+Console.WriteLine("------ Seja bem vindo ao sistema de estacionamento! ------\n" +
                   "Digite o preço inicial:");
-precoInicial = Convert.ToDecimal(Console.ReadLine());
+
+// Mudei a declaração das variáveis para deixá-las temporárias e evitar redundância
+decimal precoInicial = Convert.ToDecimal(Console.ReadLine());
 
 Console.WriteLine("Agora digite o preço por hora:");
-precoPorHora = Convert.ToDecimal(Console.ReadLine());
+decimal precoPorHora = Convert.ToDecimal(Console.ReadLine());
 
 // Instancia a classe Estacionamento, já com os valores obtidos anteriormente
 Estacionamento es = new Estacionamento(precoInicial, precoPorHora);
@@ -27,7 +29,8 @@ while (exibirMenu)
     Console.WriteLine("1 - Cadastrar veículo");
     Console.WriteLine("2 - Remover veículo");
     Console.WriteLine("3 - Listar veículos");
-    Console.WriteLine("4 - Encerrar");
+    Console.WriteLine("4 - Balanço do Dia");
+    Console.WriteLine("5 - Encerrar");
 
     switch (Console.ReadLine())
     {
@@ -44,6 +47,10 @@ while (exibirMenu)
             break;
 
         case "4":
+            es.LucroTotalDia();
+            break;
+
+        case "5":
             exibirMenu = false;
             break;
 
@@ -56,4 +63,7 @@ while (exibirMenu)
     Console.ReadLine();
 }
 
-Console.WriteLine("O programa se encerrou");
+Console.WriteLine("------ O programa se encerrou ------");
+
+// Por estar usando o Visual Studio, coloquei esse código para não fechar o terminal
+Console.ReadLine();
