@@ -53,7 +53,7 @@ namespace DesafioFundamentos.Models
                 veiculos.Remove(placa);
 
                 // Adicionei a impressão dos números decimais no valorTotal
-                Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal.ToString("0.00")}");
+                Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: {valorTotal:C}");
             }
             else
             {
@@ -83,7 +83,7 @@ namespace DesafioFundamentos.Models
         // Para me desafiar, adicionei um método a mais, para listar o lucro total obtido
         public void LucroTotalDia()
         {
-            Console.WriteLine($"O Lucro total do dia foi: R$ {lucroTotalDia.ToString("0.00")}");
+            Console.WriteLine($"O Lucro total do dia foi: {lucroTotalDia:C}");
         }
     }
 }
